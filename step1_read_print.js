@@ -1,13 +1,15 @@
 const { readline } = require("./node_readline");
+const { read_str } = require("./reader");
+const { pr_str } = require("./printer");
 
 // Read
-const READ = (str) => str;
+const READ = (str) => read_str(str);
 
 // Eval
 const EVAL = (ast, env) => ast;
 
 // Print
-const PRINT = (exp) => exp;
+const PRINT = (exp) => pr_str(exp);
 
 // REPL
 const REP = (str) => PRINT(EVAL(READ(str), {}));
