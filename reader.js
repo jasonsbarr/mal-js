@@ -26,7 +26,29 @@ const tokenize = (str) => {
   return results;
 };
 
-const read_atom = (reader) => {};
+const read_atom = (reader) => {
+  const token = reader.next();
+
+  if (token.match(/^-?[0-9]+$/)) {
+    return parseInt(token, 10);
+  } else if (token.match(/^-?[0-9][0-9.]*$/)) {
+    return parseFloat(token, 10);
+  } else if (token.match(/^"(?:\\.|[^\\"])*"$/)) {
+    return token
+      .slice(1, token.length - 1)
+      .replace(/\\(.)/g, (_, c) => (c === "n" ? "\n" : c));
+  } else if (token[0] === '"') {
+    throw new Error("expected '\"', got EOF");
+  } else if (token === "nil") {
+    return null;
+  } else if (token === "true") {
+    return true;
+  } else if (token === "false") {
+    return false;
+  } else {
+    return Symbol.for(token);
+  }
+};
 
 const read_list = (reader, start = "(", end = ")") => {
   let ast = [];
