@@ -87,3 +87,5 @@ const read_str = (str) => {
 
   return read_form(new Reader(tokens));
 };
+
+module.exports = { read_str };
