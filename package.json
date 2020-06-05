@@ -16,5 +16,8 @@
     "languages"
   ],
   "author": "Jason Barr",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "ffi-napi": "^3.0.1"
+  }
 }
