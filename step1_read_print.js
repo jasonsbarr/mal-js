@@ -17,7 +17,11 @@ const REP = (str) => PRINT(EVAL(READ(str), {}));
 while (true) {
   let line = readline("user> ");
   if (line == null) break;
-  if (line) {
-    console.log(REP(line));
+  try {
+    if (line) {
+      console.log(REP(line));
+    }
+  } catch (e) {
+    console.error(`${e}`);
   }
 }
