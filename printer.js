@@ -11,3 +11,5 @@ const pr_str = (obj) => {
 
   return obj.toString();
 };
+
+module.exports = { pr_str };
