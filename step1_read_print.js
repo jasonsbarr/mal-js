@@ -9,7 +9,7 @@ const READ = (str) => read_str(str);
 const EVAL = (ast, env) => ast;
 
 // Print
-const PRINT = (exp) => pr_str(exp);
+const PRINT = (exp) => pr_str(exp, true);
 
 // REPL
 const REP = (str) => PRINT(EVAL(READ(str), {}));
